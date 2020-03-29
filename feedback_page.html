@@ -1,0 +1,39 @@
+<!DOCTYPE html5>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        
+        <style>
+            .outer{
+                position: relative;
+                margin-left: 62px;
+                width : 601px;
+                height : 50px;
+                border : 5px solid black;
+                margin-top: 61px;
+            }
+            .inner{
+                position : absolute;
+                background-color: blue;
+                width : 50%;
+                height : 40px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="outer" id="outer" onmousemove="fillBar('inner')"><div class="inner" id="inner" ></div></div>
+        <div id="score" style="text-align: center;"></div>
+        
+    </body>
+    <script>
+        function fillBar(id){
+            var x = event.pageX - $('#outer').offset().left;
+            // alert(x);
+            var width = (x/600)*100;
+            document.getElementById("inner").style.width = Math.floor(width)+"%";
+            document.getElementById("score").innerHTML=Math.floor(width);
+        }
+    </script>
+</html>
